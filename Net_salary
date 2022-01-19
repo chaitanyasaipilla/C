@@ -1,0 +1,20 @@
+#include<stdio.h>
+void main()
+{
+int math,phy,chem,total,avg;
+
+printf("Enter the marks of maths:"); //input
+scanf("%d",&maths);
+
+printf("Enter the marks of physics:");
+scanf("%d",&physics);
+
+printf("Enter the marks of chemistry:");
+scanf("%d",&chemistry);
+
+total=math+phy+chem;
+avg=total/3  //calculation
+
+printf("total is   :%6d",total); //output
+printf("avg is     :%6d,avg");
+}
