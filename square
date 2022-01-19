@@ -4,5 +4,5 @@ void main()
 int num,square;
 num=4;
 square=num * num;
-printf("%d is square of %d",num,square);
+printf("%d is square of %d",square,num);
 }
