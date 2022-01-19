@@ -4,5 +4,5 @@ void main()
 int num,cube;
 num=5;
 cube=num*num*num;
-printf("%d is cube of %d",num,cube);
+printf("%d is cube of %d",cube,num);
 }
