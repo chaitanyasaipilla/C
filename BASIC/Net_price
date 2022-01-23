@@ -1,0 +1,13 @@
+#include<stdio.h>
+void main()
+{
+float price,discount,net_price;
+
+printf("ENTER THE PRICE:");
+scanf("%f",&price);
+
+discount=price*10/100;
+net_price=price-discount;
+
+printf("net_price=%2f",net_price);
+}
