@@ -1,0 +1,24 @@
+#include<stdio.h>
+void main()
+{
+int salary,hra,da,netsalary,grade;
+
+printf("Enter the grade[a,b] :");
+scanf("%d",&grade);
+
+printf("Enter the salary:");
+scanf("%d",&salary);
+
+if("grade == 1")
+{
+  hra=salary*35/100;
+  da=salary*20/100;
+}
+  else
+{
+  hra=salary*40/100;
+  da=salary*25/100;
+}
+netsalary=hra+da+salary;
+printf("net salary is %d",netsalary);
+}
