@@ -1,0 +1,16 @@
+#include<stdio.h>
+void main()
+{
+int n=sizeof(int);
+n=sizeof(n);
+
+float m=sizeof(float);
+m=sizeof(m);
+
+long o=sizeof(long);
+o=sizeof(o);
+
+printf("value of int is:%d\n",n);
+printf("value of float is:%f\n",m);
+printf("value of long is:%d\n",o);
+}
