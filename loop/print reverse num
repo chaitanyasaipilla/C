@@ -1,0 +1,11 @@
+#include<stdio.h>
+void main()
+ {
+ int i,n=1234,digit;
+ while(n>0)
+ {
+ digit = n % 10;
+ printf("%d",digit);
+ n/=10;
+ }
+ }
