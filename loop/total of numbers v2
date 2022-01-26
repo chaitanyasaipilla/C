@@ -1,3 +1,5 @@
+//give input 0 then loop terminates
+
 #include<stdio.h>
 void main()
 {
