@@ -1,11 +1,13 @@
 #include<stdio.h>
 void main()
 {
-int i,n=20;
+int i,n=37,count=0;
 for(i=n/2;i>0;i--)
 {
 if(n % i == 0)
 printf("%d\n",i);
 break;
 }
+if(count==0)
+    printf("largest factor is=%d",n);
 }
