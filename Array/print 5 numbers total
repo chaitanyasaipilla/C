@@ -1,0 +1,14 @@
+#include<stdio.h>
+void main()
+{
+int a[5];
+int i,n,total=0;
+for(i=0;i<=5;i++)
+{
+printf("enter 10 numbers: ");
+scanf("%d",&n);
+total+=n;
+}
+
+printf("total no of=%d",total);
+}
