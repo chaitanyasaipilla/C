@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<time.h>
+int main()
+{
+    int a[5][5], i, j;
+    srand((unsigned int)time(NULL));
+
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<5;j++)
+        {
+            a[i][j]=rand()%30;
+        }
+    }
+    printf("Matrix A is :\n");
+
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<5;j++)
+        {
+            printf("%2d ",a[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("Transpose of matrix A is :\n");
+
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<5;j++)
+        {
+            printf("%2d ",a[j][i]);
+        }
+        printf("\n");
+    }
+
+}
