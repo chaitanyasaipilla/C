@@ -1,0 +1,15 @@
+#include<stdio.h>
+void main()
+{
+char string[10];
+int count=0;
+printf("enter a string:");
+gets(string);       // print and show the name
+for(int i=0;i<=1;i++)
+{
+   puts(string); //another new line and display name
+    count++;
+}
+printf("%s\n",string);
+printf("%d",count);
+}
