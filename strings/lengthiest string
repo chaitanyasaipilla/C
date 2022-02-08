@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char ch1[10];
+    char ch2[10];
+    int i;
+    printf("enter the string :");
+    gets(ch1);
+    printf("enter the another string:");
+    gets(ch2);
+
+    for(i=0;ch1[i] && ch2[i]!='\0';i++)
+    {
+        if(strlen(ch1)>strlen(ch2))
+           {
+        printf(" ch1 is lengthiest %s\n",strlen(ch1));
+           }
+        else
+        {
+            printf("ch2 is lengthiest %s\n",strlen(ch2));
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
