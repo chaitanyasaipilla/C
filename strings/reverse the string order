@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<string.h>                               step-1;using strrev function
+void main()
+{
+    char str[10];
+    printf("enter a string:");
+    gets(str);
+
+    //using strev function
+        printf("%s\n",strrev(str));
+
+}
+
+
