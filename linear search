@@ -24,3 +24,879 @@ break;
 if (found==0)
     printf("\n  sry not found!!");
 }
+
+ChatGPT 3.5
+
+User
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Understanding Document 
+Knock off upload functionality 
+ 
+Version 1.4 
+ 
+Submitted to: 
+PCHFL 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+COPYRIGHT © 2019, Pennant Technologies. 
+All rights reserved. No part of this work may be reproduced, stored in a retrieval system, adopted or 
+transmitted in any form or by any means, electronic, mechanical, photographic, graphic, optic recording or 
+otherwise, translated in any language or computer language, without the prior written permission of 
+Pennant Technologies. 
+ 
+ 
+Document Control 
+Review and Approvals 
+ 
+Designation 
+Name 
+Date 
+Author 
+Associate Business Analyst 
+Arvind.K 
+11-07-2023 
+Reviewed By 
+Associate Manager, BA 
+Prasad.v 
+14-07-2023 
+Approved By 
+Sr. Project Manager 
+Srinivas.P 
+14-07-2023 
+ 
+Distribution 
+Holder’s Name 
+Holder’s Designation 
+Issue Date &Location 
+ 
+ 
+ 
+Change History/Revision History 
+Ver# 
+Rev. Date 
+Section(s) 
+Issue No. 
+Description 
+1.1 
+07-08-2023 
+3.5 
+ 
+Addition of Upload Data Report. 
+1.2 
+10-08-2023 
+3.4.3, 3.5 
+ 
+Addition of controls and validations. 
+1.3 
+15-09-2023 
+3.4.3 
+ 
+Only a duplicate validation in an upload file is 
+added. 
+1.4 
+04-10-2023 
+3.5 
+ 
+Changes in Upload data report. 
+1.4 
+20-11-2023 
+3.5 
+ 
+Changes in Upload data report. 
+Customer Approval 
+I/ We hereby certify that this document supersedes earlier documents/artifacts/work products and 
+accurately reflects the current understanding of the functional requirement for <Project name & Reference 
+Number>.Following approval of this document, requirement changes will be governed by the Standard 
+Projects Change Management process, including impact analysis, appropriate reviews and approvals. 
+# 
+Project Role 
+Name & Designation 
+Department 
+Date & Signature 
+1. 
+Project Owner 
+ 
+IT 
+ 
+2. 
+Project User 
+Coordinator 
+ 
+ 
+ 
+ 
+Table of Contents 
+ 
+1 OVERVIEW4 
+1.1 PURPOSE& SCOPE4 
+1.2 REFERENCES4 
+1.3 DEFINITIONS ACRONYMS AND ABBREVIATIONS4 
+1.4 ASSUMPTIONS & RISKS5 
+1.5 GLOSSARY OF TERMS5 
+1.6 IMPACTED AREAS IN THE SYSTEM5 
+2 REQUIREMENT SCOPE6 
+2.1 BUSINESS SCENARIO6 
+2.2 REQUIREMENT DETAILS6 
+2.3 REQUIREMENT TRACEABILITY MATRIX6 
+3 SOLUTION APPROACH7 
+3.1 PROCESS FLOW7 
+3.2 SOLUTION8 
+3.3 KNOCK OFF8 
+3.4 MANUAL KNOCK-OFF UPLOAD8 
+3.4.1 Manual Knock-off Upload Maker8 
+3.4.2 Upload format10 
+3.4.3 Manual Knock-off Upload Approver12 
+3.5 MANUAL KNOCK OFF UPLOAD DATA REPORT15 
+3.6 IMPACT IN ACCOUNTING16 
+3.7 IMPACT IN ENQUIRY MODULES17 
+3.8 IMPACT IN REPORTS17 
+3.9 KEY POINTS:17 
+ 
+1Overview 
+Knock off is a functionality which will be used to adjust the excess amount in loan against the Installment 
+Dues or Receivables available against the Loan as Schedule payment or Part prepayment. 
+With respect to the existing knock off functionality, bulk upload is requested by the client. 
+1.1Purpose& Scope 
+The document's scope is focused on comprehending the functional and non-functional requirements of the 
+solution. This includes identifying any risks and assumptions, which are compiled based on discussions with 
+the project client's stakeholders. 
+ 
+The purpose of this document is to formally capture and document the understanding of the solution 
+requirements. Its goal is to ensure that all project stakeholders are in agreement regarding this 
+understanding. 
+ 
+Bulk upload functionality for knock off and related changes are given in this document along with its detailed 
+solution as per requirement of client. All the changes along with their solution are mentioned in this 
+document. 
+ 
+The objective of this document is to finalize the business requirements, as well as their solutions, in order to 
+proceed with detailed design and development. It is important to note that any changes made after approval 
+will incur additional efforts. 
+1.2References 
+The below documents are referenced: 
+Jira ID 
+PD-35675-Knock Off Bulk upload functionality 
+ 
+1.3Definitions Acronyms and Abbreviations 
+The below are the definitions for the abbreviations and acronyms used in the later sections of the document: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1.4Assumptions & Risks 
+The screens shown in the UD is for the sample purpose however, the same can be changed at the time 
+of development and subsequent delivery. 
+There will not be any change in existing Reports and Enquiry. 
+ 
+1.5Glossary of terms 
+NA 
+ 
+1.6Impacted Areas in the system 
+Excess. 
+Receipts. 
+Repayment Schedule. 
+Statement of Account. 
+Postings. 
+2Requirement Scope 
+2.1Business Scenario 
+As per the earlier business process, the clearing of excess through manual excess knock-off used to be done 
+at Branch level but due to process change, now these transactions to be handled at central level. Since this 
+activity will now be done centrally, volumes will be too high to handle through manual knock-off (case to case 
+basis). Hence, bulk upload functionality is required for processing the requests. 
+2.2Requirement Details 
+Requirement is to have the Manual knockoff upload functionality in the system. 
+2.3Requirement Traceability Matrix 
+NA 
+3Solution Approach 
+3.1Process Flow 
+ 
+Once the file is uploaded from upload maker, the file will be directly placed in the server location from there 
+maker job will pick those file (As per the time frame defined), trigger all the basic level validations, then the 
+records will dump into stage table and it will be available in approver stage as per the workflow 
+configuration’s. 
+ 
+At approver stage, user can check the status of the file on List view screen and also user can download the 
+file to check any rejections or breach of validations which were triggered at Upload Maker Stage. 
+ 
+On the click of approve, the records will be picked by a Approver job then that file will be Read and Processed 
+for the approval. 
+On the click of reject, the file will be Read and Processed for the rejection. 
+This Process should be tagged to a new maker checker workflow. 
+Note: There is a change in only back end upload process flow (For processing the records for upload 
+transaction), no front end functionality will be impacted with the above said process flow. 
+3.2Solution 
+3.3Knock Off 
+A New menu as “Manual Knockoff” will be provided under Bulk processing which consists of Manual 
+Knockoff Upload Maker and Manual Knock0ff Upload Approver screens as mentioned below. 
+This option will be used to adjust the excess amount against the Installment Dues or Receivables available 
+against the Loan as Schedule payment or Part prepayment. 
+ 
+3.4Manual Knock-off Upload 
+Upload functionality will be provided to carry out the knock-off transactions in bulk.  
+User will upload the file having the details of Loan reference number, Excess Type, Dues Type and the 
+Amount to be adjusted/allocated against the excess amount. 
+ 
+3.4.1Manual Knock-off Upload Maker 
+User will be able to upload the file through this option as well as download the file to review the upload and 
+approval status of those records. 
+File Format of the upload file would be .XLS 
+ 
+ 
+ 
+User will have option to download the files that has been uploaded through the screen by selecting the 
+download which will enable only the download related section. 
+In this case, File downloaded would have two additional column viz. Status (Success / rejected)and Reject 
+Reason if the upload had error. 
+ 
+Command 
+Description 
+BROWSE 
+Click on Browse button to select upload file from local system. 
+REFRESH 
+Click on Refresh button to Clear the menu. 
+IMPORT 
+Click on Import button for initiation of validating the selected file. 
+SEARCH 
+Click on Search button to filter the records. 
+REFRESH 
+Click on Refresh button to Clear the menu. 
+DOWNLOAD TEMPLATE 
+Sample upload format template can be downloaded through the hyperlink 
+given. 
+ 
+Fields 
+Description 
+Upload File 
+Entity Code 
+Mandatory Field 
+- Master Value 
+- Entity code to be selected from the available values, which are 
+defined at entity masters. 
+File Name 
+Mandatory Field 
+- Mandatory selection from system. 
+File should be in allowed format defined.  
+Download File 
+From Date 
+Mandatory Field 
+- Calendar 
+- Select the from date from which the files has to be fetched to 
+download. 
+To Date 
+Mandatory Field 
+- Calendar 
+- Select the To date to which the files has to be fetched to 
+download. 
+File Name 
+- List of values 
+- Name of all the files will be populated in the list based on the 
+from and to date defined in previous field 
+ 
+Field List: 
+Fields 
+Description 
+Upload ID 
+- Displays the ID generated while uploading the file. 
+File Name 
+- Displays the name of the file uploaded. 
+Total Records 
+- Total number of records processed in the Upload file. 
+Processed Records 
+- Number of Success records in an upload file. 
+Success Records 
+- Number of Success records in an upload file. 
+Failed Records 
+- Number of Failed records in an upload file. 
+Progress 
+- Number of Progress records in an upload file. 
+Status 
+- Status of the upload file. 
+Download 
+- Option to download the selected file. 
+ 
+ 
+ 
+3.4.2Upload format 
+User will upload the file having details of the Loan Reference along with the Excess & Dues details based on 
+which the knock-off transaction will take place. Files to be uploaded in .CSV format whereas downloaded in 
+.xls format. 
+File format for the upload is defined below along with each column level info: 
+
+ 
+Details of individual columns has been defined below: 
+Fields 
+Description 
+LAN 
+Mandatory Field. 
+Loan reference number of the Loan for which transfer is to be made 
+Excess Type 
+Mandatory Field. 
+- Type of Excess from which balance is to be utilized for knock-off. 
+Allowed Excess: 
+EMI in Advance. 
+Excess. 
+Payable advise. 
+Early Presentment EMI in advance. 
+Receipt Amount 
+Mandatory Field. 
+- Excess amount to be utilized for knock-off 
+Receipt Date 
+Mandatory Field. 
+The date on which the transaction has to be posted in the system. 
+Allowed values: 
+DD-MMM-YYYY. 
+Allocation Type 
+Mandatory Field. 
+- To be Auto or Manual allocation 
+- In case if value is defined as ‘’Manual’’ then the user need to provide 
+the details of dues allocation. 
+- Manual Allocation only applicable for ‘’SP’’ I.e for schedule payment. 
+Fee Type Code 
+Conditional Mandatory Field. 
+Mandatory only if the excess type is Payable Advice. 
+-If in Excess Heads column, user have selected ‘‘Payable Advice’’, then it 
+is mandatory for the user to enter the Fee Type code from which the 
+excess has to be utilized for knock off. 
+Receipt Purpose 
+Mandatory Field. 
+Allowed Values: “SP” or “PP” 
+Receipt Purpose of Receipt being created has to be captured here in the 
+field against the record.​
+SP – Schedule Payment​
+PP – Part Payment 
+Effective schedule Method 
+Conditional Mandatory Field. 
+Mandatory if value against field “Receipt Purpose” is captured as “PP” 
+Allowed Values : “RECRPY” or “ADJMUR” 
+Effective Schedule Method of the loan in case Partial Payment 
+Receipt is being Created 
+ 
+RECRPY – Recalculate Payment Amount and Reduce Interest (i.e Reduce 
+EMI amount)​
+ADJMUR – Maturity Forward and Reduce Interest (i.e Reduce Tenor and 
+keep EMI amount same). 
+Application will ignore the value if Receipt Purpose is captured as “SP”. 
+Principle 
+Non-Mandatory Field 
+- Enter amount to be allocated against ‘Principle’ amount only if 
+‘Allocation type’ is selected as ‘Manual’ and Receipt purpose is “SP”. 
+Interest 
+Non-Mandatory Field 
+- Enter amount to be allocated against ‘Interest’ amount only if 
+‘‘Allocation type’’ is selected as ‘Manual’ and Receipt purpose is “SP”. 
+LPP 
+Non-Mandatory Field 
+ 
+- Enter amount to be allocated against “LPP” amount only if “Allocation 
+type” is selected as ‘‘Manual” 
+Bounce 
+Non-Mandatory Field 
+- Enter amount to be allocated against “Bounce” amount only if 
+“Allocation type” is selected as “Manual” 
+Fee Types 
+Non-Mandatory Field 
+- Enter the “Fee Type Code” as defined in “Fee Type Master” in the 
+header row 
+- Only those “Fee Type code” are to be entered which are to be knocked-
+off through the upload. 
+- In case of “Auto-allocation” this column is not to be defined and can be 
+excluded from the header row too. 
+ 
+Example: 
+ 
+Below are the Excess amount and their allocation details: 
+LAN 
+Excess Head 
+Amount 
+Dues details 
+L1 
+Excess 
+25000.00 
+LPP: 15000.00 
+Bounce: 5190 
+PROCFEE: 2000 
+ADMINCHAR: 2810 
+ 
+L2 
+Payment 
+Advise 
+32600.00 
+Principle: 15100 
+Interest:11810 
+LPP: 5100.00 
+Bounce: 590 
+ 
+ 
+In above two scenarios while defining the sample file is attached 
+herewith for quick reference: 
+ 
+
+ 
+ 
+ 
+Note: Maximum number of Rows and Columns allowed in the upload file are 5000 & 15 respectively. 
+All Existing condition of Front end UI for Part Payment through Knock off Screen will be applicable for upload. 
+ 
+Note: The upload file mentioned above to be downloaded as the sample download template 
+ 
+Sample download file: 
+ 
+
+ 
+ 
+3.4.3Manual Knock-off Upload Approver 
+A new menu as ‘Manual Knockoff Approver’ will be added under Receipts menu. The purpose of adding this 
+screen is to approve the receipts which were submitted from the menu ‘Manual Knockoff Maker’. The 
+records in the list area will appear with record status as ‘Submitted’ along with the details like 
+ 
+ 
+Command 
+Description 
+SEARCH 
+Click on Search button to get the records from system. 
+REFRESH 
+Click on Refresh button to Clear the menu 
+APPROVE 
+Click on Approve button to approve the selected file. 
+REJECT 
+Click on Reject button to reject the selected file. 
+ 
+Field List: 
+Fields 
+Description 
+Upload ID 
+- Displays the ID generated while uploading the file. 
+File Name 
+- Displays the name of the file uploaded. 
+User Name 
+- Name of the User who has uploaded the file. 
+Total Records 
+- Total number of records processed in the Upload file. 
+Processed Records 
+- Number of Success records in an upload file. 
+Success Records 
+- Number of Success records in an upload file. 
+Failed Records 
+- Number of Failed records in an upload file. 
+Progress 
+- Number of Progress records in an upload file. 
+Status 
+- Status of the upload file. 
+Download 
+- Option to download the selected file. 
+ 
+ 
+Validation and Controls: 
+ 
+A valid loan reference should be given in the upload file if not the record should get rejected with the 
+reject reason as “Invalid Loan Reference”. 
+If the multiple same and valid loan references are given in a single upload file, then system should reject 
+all those records with the reject reason as “Duplicate records available in the upload file.”  
+Valid excess type should be given in the upload file if not the record should get rejected with the reject 
+reason as “Invalid Excess Type”. 
+The amount given under the Excess type should be less than or equal to the available amount in the 
+excess head or fee type code (applicable for payable advise) given,if not the record should get rejected 
+with the reject reason as “Given receipt amount should be less than or equal to the available excess 
+amount <Available excess amount>”. 
+Date should be given in the valid format if not the record should get rejected with the reject reason as 
+“Invalid date format.Allowed format is DD-MM-YYYY”. 
+The receipt date should be less than or equal to current application date if not the record should get 
+rejected with the reject reason as “Date should be less than or equal to <current application date >”. 
+If the receipt purpose is Part payment (PP) then the receipt date should be greater than the last 
+reschedule date if not the record should get rejected with the reject reason as “Date should be greater 
+than <Last reschedule date >”. 
+If the receipt purpose is Schedule payment (SP) then the receipt date should be greater or equal to loan 
+start date if not, the record should get rejected with the reject reason as “Receipt date should be 
+greater than or equal to loan start date <Loan start date >”. 
+If the receipt purpose is Schedule payment (SP) then the receipt date should be less than or equal to 
+current application date if not, the record should get rejected with the reject reason as “Receipt date 
+should be less than or equal to current application date <Current application date>”. 
+If the receipt purpose is Schedule payment (SP) then the receipt date allowed back dated days should be 
+with in the allowed days defined at a parameter level, if not the record should get rejected with the 
+reject reason as “Invalid Receipt date, allowed date should be between <Allowed between days>”. 
+If the receipt purpose is Part payment (PP) then the receipt amount given should be less than the Total 
+outstanding amount if not the record should get rejected with the reject reason as “Receipt amount 
+should be less than total outstanding amount <Total outstanding amount>”. 
+The allowed values in the allocation type should be “M” or “A”,if any other value is given in the upload 
+file then the record should get rejected with the reject reason as “Invalid Allocation Type”. 
+If the receipt purpose is “PP”then the allowed allocation type should only be “A”if not the record should 
+get rejected with the reject reason as “Manual allocation is not allowed for the receipt purpose PP”. 
+Fee type code given in the upload file should be valid,if not the record should get rejected with the 
+reject reason as “Invalid Fee Type Code”. 
+The allowed receipt purpose’s are only SP & PP (schedule payment and part payment), if any other 
+values are given then the record should get rejected with the reject reason as “Invalid Receipt Purpose 
+values.Allowed values are only “SP & PP”. 
+Effective Schedule Method is mandatory for the receipt purpose “PP”.if the receipt purpose is PP and 
+the Effective schedule method is not given then the record should get rejected with the reject reason as 
+“Effective schedule method is mandatory for the receipt purpose PP”. 
+Valid values should be provided in the Effective Schedule Method column,if not the record should get 
+rejected with the reject reason as “Invalid Effective Schedule Method ”. 
+If the Receipt purpose is “SP” and if any values available in the Effective Schedule Method column then 
+system should by pass that value and should process the record. 
+If the Receipt purpose is “SP” & the allocation type is “M” then the allocation details should be given in 
+the upload file if not the record should get rejected with the reject reason as “If the allocation type is 
+“M” then the allocation details are mandatory”. 
+Valid allocation heads should be given in the upload file (As mentioned above) if not the record should 
+get rejected with the reject reason as “Invalid Allocation Heads in the upload file”. 
+If the allocation type is “M” then the receipt amount given should be equal to the amount given in the 
+allocation items/heads if not the record should get rejected with the reject reason as “Allocation 
+amount should be equal to given receipt amount”. 
+Appropriate account postings to be done. 
+This transaction will be tagged to the Maker Checker workflow. 
+If the allocation type is “M”,receipt purpose is “SP” and then the receipt allocation amount given in the 
+upload file should be less than or equal to the actual dues available to the respective items, if not those 
+records should be rejected with the reject reason as “Allocation amount given should be less than or 
+equal to the actual dues available”. 
+System should consider only the data available in the sheet 1 while uploading the file. 
+ 
+ 
+3.5Manual Knock Off Upload Data Report 
+A new report as “Manual Knock Off Upload Data Report” will be made available in the system which 
+provides the user the required details to perform the knock off bulk upload.  
+The report should be download only for those loan references against which the excess amount (Balanced 
+amount for the excess heads defined in the section 3.4.2 ) is available in the system and with the Loan status 
+as Active. 
+ 
+ 
+Filter Field Details: 
+Fields 
+Description 
+Loan type 
+Facility to select the loan types from the available list. 
+Multi-selection option will be provided for the loan type selection. 
+The user can select only the maximum of 5 Loan types at a time in order to 
+download the report. 
+Loan Reference 
+Facility to select the loan reference from the available list. 
+Multi-selection option will be provided for the loan reference selection. 
+ 
+From the above filter fields Loan type and Loan reference, Either of the field is mandatory. 
+ 
+Command 
+Description 
+FILTER 
+Click on Filter button to download the report from system. 
+REFRESH 
+Click on Refresh button to Clear the menu 
+Close 
+Click on Close button for closing the menu. 
+ 
+ 
+ 
+ 
+Sample Download Report: 
+ 
+ 
+Data Report Field Details: 
+Fields 
+Description 
+LAN 
+The loan references to be downloaded basis the filters applied to 
+download the report. 
+Excess Type 
+Excess type code to be displayed if there is any excess amount is 
+available in the excess head against that loan reference. 
+If the excess amount is available in the multiple heads for the same loan 
+reference, then the multiple records to be downloaded in the report for 
+the same loan reference. 
+Excess Amount 
+The available excess amount (Balanced amount) in the respective excess 
+head against that loan reference to be displayed.  
+Receipt Date 
+To be displayed as blank 
+Allocation Type 
+To be displayed as blank 
+Fee Type Code 
+To be displayed as blank 
+Receipt Purpose 
+To be displayed as blank 
+Effective schedule Method 
+To be displayed as blank 
+PRI (Principle) 
+The total principal amount which is due for that loan reference to be 
+displayed. 
+INT (Interest) 
+The total Interest amount which is due for that loan reference to be 
+displayed. 
+LPP 
+The total Late Payment Penalty amount which is due for that loan 
+reference to be displayed. 
+LPFT 
+The total Late Payment Interest amount which is due for that loan 
+reference to be displayed. 
+Bounce 
+The total Bounce amount which is due for that loan reference to be 
+displayed. 
+Other Receivables 
+All the Receivable amount due available against that loan will be 
+displayed. 
+It considers only the due amount available with the receivable advise 
+created against that loan reference. 
+ 
+3.6Impact in Accounting 
+There will be no impact in accounting, It will work as per the existing flow.  
+
+By reading this please provide me negative scenarios
+
+ChatGPT
+Negative Scenarios:
+
+Invalid Loan Reference:
+
+If an upload file contains an invalid loan reference, the record should be rejected with the reason "Invalid Loan Reference."
+Duplicate Valid Loan References:
+
+If multiple valid and identical loan references are given in a single upload file, all those records should be rejected with the reason "Duplicate records available in the upload file."
+Invalid Excess Type:
+
+If an upload file contains an invalid excess type, the record should be rejected with the reason "Invalid Excess Type."
+Excess Amount Greater Than Available:
+
+If the amount given under the excess type exceeds the available amount, the record should be rejected with the reason "Given receipt amount should be less than or equal to the available excess amount."
+Invalid Date Format:
+
+If an upload file contains an invalid date format, the record should be rejected with the reason "Invalid date format. Allowed format is DD-MM-YYYY."
+Receipt Date Not within Allowed Range:
+
+If the receipt date is not within the allowed range, the record should be rejected with the appropriate reject reason.
+Invalid Receipt Purpose:
+
+If an upload file contains an invalid receipt purpose, the record should be rejected with the reason "Invalid Receipt Purpose values. Allowed values are only SP & PP."
+Invalid Allocation Type:
+
+If the allocation type in the upload file is neither "M" nor "A," the record should be rejected with the reason "Invalid Allocation Type."
+Invalid Fee Type Code:
+
+If the fee type code given in the upload file is invalid, the record should be rejected with the reason "Invalid Fee Type Code."
+Missing Mandatory Fields:
+
+If any mandatory field in the upload file is missing, the record should be rejected.
+Manual Allocation Not Allowed for PP:
+
+If the receipt purpose is "PP," and the allocation type is "M," the allocation details should be mandatory. If not, the record should be rejected with the reason "If the allocation type is 'M,' then the allocation details are mandatory."
+Invalid Allocation Heads:
+
+If invalid allocation heads are given in the upload file, the record should be rejected with the reason "Invalid Allocation Heads in the upload file."
+Allocation Amount Not Equal to Receipt Amount:
+
+If the allocation type is "M," the receipt amount given should be equal to the amount given in the allocation items/heads. If not, the record should be rejected with the reason "Allocation amount should be equal to given receipt amount."
+System Considering Data from Other Sheets:
+
+If the system considers data from sheets other than sheet 1 while uploading the file, it should be considered a system error.
+These scenarios ensure the robustness of the knock-off upload functionality by handling various potential issues and errors.
+
+
+
+
+User
+Pls read the above UD document and write negative testcases of manual knockoff upload data report tab
+
+ChatGPT
+Negative Test Cases for Manual Knock Off Upload Data Report Tab:
+
+Invalid Loan Type:
+
+Attempt to filter the report with an invalid loan type and ensure the system handles it appropriately, perhaps with an error message like "Invalid Loan Type."
+Invalid Loan Reference:
+
+Filter the report with an invalid loan reference and verify that the system handles it correctly, possibly displaying a message such as "Invalid Loan Reference."
+Filter Without Mandatory Fields:
+
+Attempt to filter the report without providing mandatory fields like Loan Type or Loan Reference and check if the system prompts for these mandatory details.
+Select More Than 5 Loan Types:
+
+Try selecting more than 5 loan types simultaneously and confirm that the system restricts the selection to a maximum of 5.
+Select More Than 1 Loan Reference Without Loan Type:
+
+Choose more than one loan reference without specifying the loan type and ensure the system prompts for the mandatory loan type.
+Filter with Invalid Date Range:
+
+Provide an invalid date range (e.g., the end date before the start date) and confirm that the system handles it appropriately, possibly with an error message.
+Close Report Without Applying Filter:
+
+Attempt to close the report without applying any filters and check if the system prompts the user to confirm closing without downloading any data.
+Download Report Without Applying Filters:
+
+Try downloading the report without applying any filters and verify that the system provides a suitable warning or error message indicating the need to apply filters.
+Download Report with No Matching Data:
+
+Apply filters that do not match any data in the system and verify that the downloaded report is empty or includes a message indicating no matching records.
+Select Invalid Combination of Filters:
+
+Choose a combination of filters that is not logically valid (e.g., Loan Type and Loan Reference that are incompatible), and check if the system handles it appropriately, possibly with an error message.
+Attempt to Refresh Report:
+
+Try refreshing the report after applying filters and verify that the system maintains the filter criteria instead of resetting them.
+Download Report with Inactive Loans:
+
+Apply filters to download the report for inactive loans and ensure the system handles this scenario, possibly with a message like "No active loans found."
+Attempt to Download Report Multiple Times Simultaneously:
+
+Initiate multiple download requests simultaneously and confirm that the system processes them in a queue or handles them gracefully without errors.
+These negative test cases cover a range of scenarios to ensure the Manual Knock Off Upload Data Report Tab functions correctly and handles unexpected situations.
+
+
+
+
+User
+Please provide me In a testcase sentence format
+
+ChatGPT
+Invalid Loan Type Filter Test:
+
+Attempt to filter the report with an invalid loan type and verify that the system displays an appropriate error message indicating "Invalid Loan Type."
+Invalid Loan Reference Filter Test:
+
+Filter the report with an invalid loan reference and confirm that the system handles it correctly, providing a message like "Invalid Loan Reference."
+Filter Without Mandatory Fields Test:
+
+Try to filter the report without providing mandatory fields like Loan Type or Loan Reference and check if the system prompts the user for these required details.
+Exceed Maximum Loan Types Selection Test:
+
+Select more than 5 loan types simultaneously and ensure the system restricts the selection to a maximum of 5, providing a suitable notification.
+Select Multiple Loan References Without Loan Type Test:
+
+Choose more than one loan reference without specifying the loan type and verify that the system prompts for the mandatory loan type before proceeding.
+Invalid Date Range Filter Test:
+
+Provide an invalid date range (e.g., end date before the start date) and confirm that the system handles it appropriately, possibly displaying an error message.
+Close Report Without Applying Filters Test:
+
+Attempt to close the report without applying any filters and check if the system prompts the user to confirm closing without downloading any data.
+Download Report Without Applying Filters Test:
+
+Try downloading the report without applying any filters and verify that the system provides a suitable warning or error message indicating the need to apply filters.
+Download Report with No Matching Data Test:
+
+Apply filters that do not match any data in the system and verify that the downloaded report is empty or includes a message indicating no matching records.
+Invalid Combination of Filters Test:
+
+Choose a combination of filters that is not logically valid (e.g., incompatible Loan Type and Loan Reference) and check if the system handles it appropriately with an error message.
+Attempt to Refresh Report Test:
+
+Try refreshing the report after applying filters and verify that the system maintains the filter criteria instead of resetting them.
+Download Report with Inactive Loans Test:
+
+Apply filters to download the report for inactive loans and ensure the system handles this scenario, possibly displaying a message like "No active loans found."
+Multiple Simultaneous Download Requests Test:
+
+Initiate multiple download requests simultaneously and confirm that the system processes them in a queue or handles them gracefully without errors.
+
+
+
+User
+Pls provide me testcases like verify 
+
+ChatGPT
+Certainly! Here are test cases with "Verify" for the Manual Knock Off Upload Data Report Tab:
+
+Verify Successful Download with Valid Filters:
+
+Verify that the report downloads successfully when valid filters, such as a correct combination of Loan Type and Loan Reference, are applied.
+Verify Error Message for Invalid Loan Type:
+
+Verify that an appropriate error message is displayed when attempting to filter the report with an invalid loan type.
+Verify Error Message for Invalid Loan Reference:
+
+Verify that the system displays an error message when filtering the report with an invalid loan reference.
+Verify Mandatory Field Prompt:
+
+Verify that the system prompts the user to provide mandatory fields (Loan Type or Loan Reference) if attempting to filter the report without them.
+Verify Maximum Loan Types Selection Limit:
+
+Verify that the system restricts the selection to a maximum of 5 loan types and provides a notification when attempting to select more.
+Verify Prompt for Loan Type Without Loan Reference:
+
+Verify that the system prompts the user to select the loan type when attempting to filter with multiple loan references without specifying the loan type.
+Verify Error Message for Invalid Date Range:
+
+Verify that the system displays an error message when attempting to filter the report with an invalid date range (e.g., end date before start date).
+Verify Prompt to Apply Filters Before Closing:
+
+Verify that the system prompts the user to apply filters or confirms closing without downloading when attempting to close the report without applying filters.
+Verify Warning for Download Without Filters:
+
+Verify that the system displays a warning or error message when attempting to download the report without applying any filters.
+Verify Empty Report for No Matching Data:
+
+Verify that the downloaded report is empty or contains a message indicating no matching records when filters do not correspond to existing data.
+Verify Handling of Invalid Filter Combination:
+
+Verify that the system handles an invalid combination of filters appropriately, displaying an error message.
+Verify Maintained Filter Criteria After Refresh:
+
+Verify that the system maintains the applied filter criteria after refreshing the report.
+Verify Successful Download with Active Loans:
+
+Verify that the report downloads successfully for active loans, confirming the presence of relevant data.
+Verify Graceful Handling of Simultaneous Downloads:
+
+Verify that the system gracefully handles simultaneous download requests, ensuring they are processed without errors.
+These "Verify" test cases focus on confirming specific expected behaviors and responses in various scenarios for the Manual Knock Off Upload Data Report Tab.
+
+
+
+
+User
+Pls provide negative testcases for  the above Ud
+
+ChatGPT
+Certainly! Here are negative test cases for the Manual Knock Off Upload Data Report Tab based on the provided User Document (UD):
+
+Verify Error Message for Incorrect Loan Type:
+
+Attempt to filter the report with a loan type that does not exist in the system and verify that the system displays an error message indicating the issue.
+Verify Error Message for Nonexistent Loan Reference:
+
+Filter the report with a loan reference that does not exist in the system and verify that the system provides an error message indicating the nonexistence of the specified loan reference.
+Verify Inability to Filter Without Mandatory Fields:
+
+Try to filter the report without providing mandatory fields (Loan Type or Loan Reference) and verify that the system does not proceed, displaying a relevant error message.
+Verify Proper Handling of Exceeding Maximum Loan Types:
+
+Select more than the allowed maximum of 5 loan types and verify that the system correctly handles this situation, possibly by allowing only the first 5 selections or displaying an error.
+Verify No Selection of Loan References Without Loan Type:
+
+Attempt to select multiple loan references without specifying the loan type and verify that the system prevents the user from proceeding until the loan type is selected.
+Verify Error Message for Invalid Date Range:
+
+Provide an invalid date range (e.g., end date before start date) and verify that the system displays an error message indicating the invalid date range.
+Verify Unable to Close Report Without Applying Filters:
+
+Attempt to close the report without applying any filters and verify that the system does not allow closing without either applying filters or confirming the action.
+Verify Warning for Download Without Filters:
+
+Try to download the report without applying any filters and verify that the system provides a warning or error message, indicating the need to apply filters before downloading.
+Verify Empty Report for No Matching Data:
+
+Apply filters that do not correspond to any existing data and verify that the downloaded report is either empty or includes a message stating that no matching records were found.
+Verify Handling of Invalid Filter Combination:
+
+Choose a combination of filters that logically do not match (e.g., incompatible Loan Type and Loan Reference) and verify that the system displays an error message.
+Verify No Data Loss After Refresh:
+
+Apply filters, refresh the report, and verify that the system maintains the applied filter criteria and does not lose any data.
+Verify Unable to Download for Inactive Loans:
+
+Apply filters to download the report for inactive loans and verify that the system appropriately handles this scenario, possibly by displaying a message indicating no active loans found.
+Verify No Errors with Simultaneous Downloads:
+
+Initiate multiple download requests simultaneously and verify that the system processes them without encountering errors or inconsistencies.
