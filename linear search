@@ -900,3 +900,53 @@ Apply filters to download the report for inactive loans and verify that the syst
 Verify No Errors with Simultaneous Downloads:
 
 Initiate multiple download requests simultaneously and verify that the system processes them without encountering errors or inconsistencies.
+
+
+
+
+Verify Loan Details stage with Repayment mode as ECS with single ROI
+Verify Loan Details stage with Repayment mode as NACH with single ROI
+Verify Loan Details stage with Repayment mode as PDC with single ROI
+Verify Loan Details stage with Repayment mode as SI with single ROI
+Verify Loan Details stage with Repayment mode as E-MANDATE with Multi ROI
+Verify Loan Details stage with Repayment mode as Manual payment with Multi ROI
+Verify Loan Details stage with Repayment mode as ECS with Multi ROI
+Verify Loan Details stage with Repayment mode as NACH with Multi ROI
+Verify Loan Details stage with Repayment mode as PDC with Multi ROI
+Verify Loan Details stage with Repayment mode as SI with Multi ROI
+Verify Loan Details stage with Repayment mode as E-MANDATE with Multi ROI
+Verify Loan Details stage with Insurance applicable (VAS) and CPV
+Verify Loan Details stage without Insurance applicable (VAS) and CPV
+Verify Loan Details stage  processing fee waived
+Verify Loan Details stage charge or fee details as Deduct from Disbursement schedule method
+Verify Loan Details stage charge or fee details as Include to Loan Amount and Interest Calculation schedule method
+Verify Loan Details stage charge or fee details as Subvention Due schedule method
+Verify Loan Details stage having disbursement method as IMPS and single beneficiary
+Verify Loan Details stage having disbursement method as RTGS and single beneficiary
+Verify Loan Details stage having disbursement method as NEFT and single beneficiary
+Verify Loan Details stage having disbursement method as NEFT,RTGS & IMPS and multiple beneficiary
+Verify The Auto and manual deviations in Loan Details stage
+Verify The cam details in Loan Details stage with cam rule and  with out cam rule
+Verify The available actions(Notes,save,submit,reject) in Loan Details stage
+Verify The credit analyst stage with empty and invalid data
+Verify The Auto and manual deviations in Credit Analyst stage with pending deviations
+Verify The Auto and manual deviations in Credit Analyst stage with Rejected deviations
+Verify The Auto and manual deviations in Credit Analyst stage with approved deviations
+Verify The cam details in Credit Analyst with out cam rule
+Verify The cam details in Credit Analyst with cam rule
+Verify The available actions(Notes,save,submit,reject) in credit analyst stage
+Verify the Document Process stage with empty and invalid data
+Verify the Document Process stage with e sign and agreements and eligibility
+Verify The available actions(Notes,save,submit,reject) in Document Process
+Verify the CPU stage with empty and invalid data
+Verify the CPU stage with cctv working status enabled and not external customer also finreq amount more than 10lacks
+Verify the CPU stage with CCTV working status enabled and not external customer also finreq amount less than 10lacks
+Verify the CPU stage with CCTV working status enabled and external customer also finreq amount more than 50lacks
+Verify the CPU stage with CCTV working status enabled and external customer also finreq amount less than 50lacks
+Verify the CPU stage with CCTV working status disabled
+Verify the CPU stage with CCTV working status disabled and not external customer also finreq amount more than 10lacks
+Verify the CPU stage with CCTV working status disabled and not external customer also finreq amount less than 10lacks
+Verify the CPU stage with CCTV working status disabled and external customer also finreq amount more than 50lacks
+Verify the CPU stage with CCTV working status disabled and external customer also finreq amount less than 50lacks
+Verify the CPU stage with all valid actions(Notes,save,submit,reject)
+
