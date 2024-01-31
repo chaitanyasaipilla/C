@@ -904,49 +904,58 @@ Initiate multiple download requests simultaneously and verify that the system pr
 
 
 
-Verify Loan Details stage with Repayment mode as ECS with single ROI
-Verify Loan Details stage with Repayment mode as NACH with single ROI
-Verify Loan Details stage with Repayment mode as PDC with single ROI
-Verify Loan Details stage with Repayment mode as SI with single ROI
-Verify Loan Details stage with Repayment mode as E-MANDATE with Multi ROI
-Verify Loan Details stage with Repayment mode as Manual payment with Multi ROI
-Verify Loan Details stage with Repayment mode as ECS with Multi ROI
-Verify Loan Details stage with Repayment mode as NACH with Multi ROI
-Verify Loan Details stage with Repayment mode as PDC with Multi ROI
-Verify Loan Details stage with Repayment mode as SI with Multi ROI
-Verify Loan Details stage with Repayment mode as E-MANDATE with Multi ROI
-Verify Loan Details stage with Insurance applicable (VAS) and CPV
-Verify Loan Details stage without Insurance applicable (VAS) and CPV
-Verify Loan Details stage  processing fee waived
-Verify Loan Details stage charge or fee details as Deduct from Disbursement schedule method
-Verify Loan Details stage charge or fee details as Include to Loan Amount and Interest Calculation schedule method
-Verify Loan Details stage charge or fee details as Subvention Due schedule method
-Verify Loan Details stage having disbursement method as IMPS and single beneficiary
-Verify Loan Details stage having disbursement method as RTGS and single beneficiary
-Verify Loan Details stage having disbursement method as NEFT and single beneficiary
-Verify Loan Details stage having disbursement method as NEFT,RTGS & IMPS and multiple beneficiary
-Verify The Auto and manual deviations in Loan Details stage
-Verify The cam details in Loan Details stage with cam rule and  with out cam rule
-Verify The available actions(Notes,save,submit,reject) in Loan Details stage
-Verify The credit analyst stage with empty and invalid data
-Verify The Auto and manual deviations in Credit Analyst stage with pending deviations
-Verify The Auto and manual deviations in Credit Analyst stage with Rejected deviations
-Verify The Auto and manual deviations in Credit Analyst stage with approved deviations
-Verify The cam details in Credit Analyst with out cam rule
-Verify The cam details in Credit Analyst with cam rule
-Verify The available actions(Notes,save,submit,reject) in credit analyst stage
-Verify the Document Process stage with empty and invalid data
-Verify the Document Process stage with e sign and agreements and eligibility
-Verify The available actions(Notes,save,submit,reject) in Document Process
-Verify the CPU stage with empty and invalid data
-Verify the CPU stage with cctv working status enabled and not external customer also finreq amount more than 10lacks
-Verify the CPU stage with CCTV working status enabled and not external customer also finreq amount less than 10lacks
-Verify the CPU stage with CCTV working status enabled and external customer also finreq amount more than 50lacks
-Verify the CPU stage with CCTV working status enabled and external customer also finreq amount less than 50lacks
-Verify the CPU stage with CCTV working status disabled
-Verify the CPU stage with CCTV working status disabled and not external customer also finreq amount more than 10lacks
-Verify the CPU stage with CCTV working status disabled and not external customer also finreq amount less than 10lacks
-Verify the CPU stage with CCTV working status disabled and external customer also finreq amount more than 50lacks
-Verify the CPU stage with CCTV working status disabled and external customer also finreq amount less than 50lacks
-Verify the CPU stage with all valid actions(Notes,save,submit,reject)
+Verify the Application Request Details tab for walk in customer with CIF
+Verify the Application Request Details tab for walk in customer with PAN & Mobile Number
+Verify the Application Request Details tab for walk in customer with Extended filter options
+Get Error Messages at QDE stage with Empty input and invalid input for existing customer
+Get Error Messages at QDE stage with Empty input and invalid input for New customer
+Verify QDE stage in Gold Loan Application Details with Insta Account Customer
+Verify QDE stage in Gold Loan Application Details with NTB Credit Program
+Verify QDE stage in Gold Loan Application Details with Managed Credit Program
+Verify QDE stage in Gold Loan Application Details with Non-Managed Credit Program
+Verify QDE stage in Gold Loan Application Details with External Credit Program
+Verify QDE stage in Gold Loan Application Details with same permanent and current address
+Verify QDE stage in Gold Loan Application Details with different permanent and current address
+Verify QDE stage in Gold Loan Application Details with other details tab for addresses
+Verify QDE stage in Gold Loan Application Details with available actions(Notes,save,submit,reject)
+Get Error Messages at Additional Details stage in Gold Loan Application Details with Empty input and  Invalid input
+Verify Additional Details stage in Gold Loan Application Details with co-applicant and guarantor and empty data and invalid
+Verify Additional Details stage in Gold Loan Application Details with existed co-applicant and guarantor
+Verify Additional Details stage in Gold Loan Application Details with new co-applicant and guarantor
+Verify Additional Details stage in Gold Loan Application Details without co-applicant and guarantor
+Verify Additional Details stage in Gold Loan Application Details with available actions(Notes,save,submit,reject)
+Verify Additional Details stage with different promotional schemes like staff or non staff and sourcing schemes
+Get Error Messages at GLO Valuation stage in Gold Loan Application Details with Empty input and invalid input
+Verify GLO Valuation stage in Gold Loan Application Details with valid input and primary valuation
+Verify GLO Valuation stage in Gold Loan Application Details with valid input and Dual valuation
+Verify GLO Valuation stage with RIC Value and CCTV working status enabled
+Verify GLO Valuation stage with RIC Value and CCTV working status disabled
+Verify GLO Valuation stage with Ornament category as NEW and 18k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as NEW and 20k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as NEW and 21k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as NEW and 22k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as NEW and 24k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as OLD and 18k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as OLD and 20k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as OLD and 21k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as OLD and 22k fineness along with Hallmark
+Verify GLO Valuation stage with Ornament category as OLD and 24k fineness along with Hallmark
+Verify GLO Valuation stage with single black beed ornament below and above 15 gross weight
+Verify GLO Valuation stage with more than 6 ornaments
+Verify GLO Valuation stage with more than 12 ornaments
+Verify GLO Valuation stage with multiple no of armaments with impurity and with out impurity
+Verify GLO Valuation stage with Bypass of primary valuator and secondary valuator e signs along with checklist and eligibility
+Verify GLO Valuation stage with primary valuator and secondary valuator e signs along with checklist and eligibility
+Verify GLO Valuation stage with packet weight < gross weight and packet weight > gross weight
+Verify GLO Valuation stage with available actions(Notes,save,submit,reject)
+Get Error Messages at Loan Details stage in Gold Loan Application Details with Empty input and invalid input
+Verify Loan Details stage with single ROI having calculated rate < actual rate
+Verify Loan Details stage with single ROI having calculated rate > actual rate
+Verify Loan Details stage with single ROI having calculated rate equal actual rate
+Verify Loan Details stage with Multi ROI having calculated rate < actual rate
+Verify Loan Details stage with Multi ROI having calculated rate > actual rate
+Verify Loan Details stage with Multi ROI having calculated rate equal actual rate
+Verify Loan Details stage with disb amount more than sanctioned amount
+Verify Loan Details stage with disb amount more than financed amount
+Verify Loan Details stage with Repayment Frequency as Yearly,Half yearly,Quarterly & Monthly
 
